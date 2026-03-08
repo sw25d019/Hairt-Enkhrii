@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mart 8</title>
+
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      video {
+        width: 70%;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+      }
+
+      .flower {
+        position: fixed;
+        top: -50px;
+        font-size: 25px;
+        animation: fall linear forwards;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-50px) rotate(0deg);
+          opacity: 1;
+        }
+
+        100% {
+          transform: translateY(110vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <video controls autoplay>
+      <source src="SVLP6914.MOV" type="video/mp4" />
+    </video>
+
+    <script>
+      function createFlower() {
+        const flower = document.createElement("div");
+
+        flower.classList.add("flower");
+
+        flower.innerHTML = "🌸";
+
+        flower.style.left = Math.random() * 100 + "vw";
+
+        flower.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+        document.body.appendChild(flower);
+
+        setTimeout(() => {
+          flower.remove();
+        }, 6000);
+      }
+
+      setInterval(createFlower, 300);
+    </script>
+  </body>
+</html>
